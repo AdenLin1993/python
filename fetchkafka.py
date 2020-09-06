@@ -28,13 +28,13 @@ class Fetch(object) :
 		"""建立与kafka数据库连接的客户端，group.id随意命名，保证其他人没有在使用这个id，因为一个id只能拉取一次数据，每次拉取数据都拉取七天前到现在的数据"""
 		try :
 			Source_Kafka_Consumer = Consumer({
-					'bootstrap.servers':'10.41.241.6:9092'
-					,'group.id':'wzs.pmo.p3.careyfetch'
+					'bootstrap.servers':'xx.xx.xx.xx:xx'
+					,'group.id':'careyfetch'
 					,'auto.offset.reset':'earliest'
 					, 'session.timeout.ms': 6000
 					})
 			DEFAULT_JSON_OPTIONS.strict_uuid = True
-			Source_Kafka_Consumer.subscribe(['wzs.wigps.seccard'])
+			Source_Kafka_Consumer.subscribe(['xxx.xxx.xxx'])		#指定要拉取哪个topic的数据
 			self.consumer = Source_Kafka_Consumer
 		except Exception as inst:
 			print('kafaka Connection Fail')
