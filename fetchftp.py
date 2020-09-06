@@ -59,7 +59,7 @@ class Fetch(object):
 				if onefile.lower().endswith('.{}'.format(filetpye)) and findlength > 0:
 					TotalFiles+= 1
 					TmpPath = './/temporaryfile//{0}'.format(onefile)
-					"""通过创建好的FTP共享盘客服端和相关参数，下载指定的文件到程式运行的主机存储。"""
+					"""通过创建好的FTP共享盘客服端和相关参数，下载指定的文件到程式运行的主机存储。onefile是要下载的文件名称，TmpPath是指定的本地文件路径"""
 					self.FtpClient.retrbinary("RETR "+onefile,open(TmpPath,'wb').write)
 					SuccessFiles+= 1
 			except Exception as inst :
