@@ -42,7 +42,7 @@ class Fetch(object):
 			logging.error('FTP Connection Fail')
 			logging.error(inst)
 			
-	"""这是一个从FTP共享盘拉取数据的函数范例"""
+	"""这是一个从FTP共享盘拉取数据的函数范例，remotedri是远程目录的路径，filetype是文件后缀属性，filestring是文件名称中含有哪些字符"""
 	"""demoformat:fetch_xxxx("/Man_Power/Training_Roadmap","xlsx",filestring = "DLA")"""
 	def fetch_xxxx(self,remotedri,filetpye,filestring = ".") :
 		print('Start Download {0}'.format(remotedri))
