@@ -18,7 +18,7 @@ class Fetch(object) :
     def fetch_xxxx(self): 
         try :
             """ fa3a報表的路徑 """
-            fa3a_dri = "https://mfgkm-wzs.wistron.com/P3A-War_room/DocLib1/WZS%20Plant3%20Final%20assembly%20Schedule-MZ3100(Building%203A)"
+            fa3a_dri = "https://xx.xx.com/xx/DocLib1/WZS%20Plant3%20Final%20assembly%20Schedule-MZ3100(Building%203A)"
             resp_dri = requests.get(fa3a_dri,auth=self.auth,verify = False)
             dri_content = resp_dri.content.decode("utf-8")
             filepat = re.compile("id=/P3A-War_room/DocLib1/.*?\d\d\d\d\d\d[A,B,C].xlsx")
