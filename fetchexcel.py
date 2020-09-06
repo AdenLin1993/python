@@ -15,6 +15,7 @@ import pandas as pd
 import xlsxwriter
 import xlrd
 
+""" 创建一个从本地拉取excel指定特征工作簿的类 """
 class Fetch(object) :
 	def __init__(self) :
 		self.config = configparser.RawConfigParser()
