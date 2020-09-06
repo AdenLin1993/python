@@ -32,7 +32,7 @@ class Fetch(object) :
 			print('Elasticsearch connect fail')
 			print(inst)
 			
-	"""这是一个从ES数据库拉取数据的函数范例"""
+	"""这是一个从ES数据库拉取数据的函数范例，cur_flagtime是一个时间戳，构建query_body使用的一个变数"""
 	def meter_hour_cur(self,cur_flagtime):
 		print('fetch {0} Start'.format(self.Index))
 		logging.info('fetch {0} Start'.format(self.Index))
