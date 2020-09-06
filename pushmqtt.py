@@ -117,7 +117,7 @@ msgs.append(msg)
 
 # push all message to mqtt server
 try:
-    publish.multiple(msgs,hostname="zsarm-mqtt-p03.wzs.wistron",port=9001,client_id="carey_lin", keepalive=60,transport="websockets")
+    publish.multiple(msgs,hostname="xx.xx.xx.xx",port=9001,client_id="carey_lin", keepalive=60,transport="websockets")
 except Exception as inst :
 	print("mqtt connect fail ！")
 
