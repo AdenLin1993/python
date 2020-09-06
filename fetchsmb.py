@@ -10,7 +10,9 @@ import time
 import datetime
 from smbclient import(listdir,mkdir,register_session,rmdir,scandir,link,open_file,remove,stat,symlink,)
 
+""" 创建一个SMB共享盘拉取数据的类"""
 class Fetch(object) :
+	"""重写类的初始化属性"""
 	def __init__(self):
 		self.config = configparser.RawConfigParser()
 		self.config.read('./config.cfg')
@@ -21,7 +23,8 @@ class Fetch(object) :
 		self.smbhost=self.config.get('P3DLA_SMB','smbhost')
 		self.smbuser=self.config.get('P3DLA_SMB','smbuser')
 		self.smbpw=self.config.get('P3DLA_SMB','smbpw')
-
+		
+		"""建立与SMB共享盘连接的客户端"""
 		try :
 			register_session(self.smbhost,self.smbuser,self.smbpw)
 		except Exception as inst:
@@ -34,7 +37,8 @@ class Fetch(object) :
 			, level=logging.INFO
 			, format='%(asctime)s %(message)s'
 			, datefmt='%Y/%m/%d %I:%M:%S %p')
-
+	
+	"""这是一个从SMB共享盘拉取数据的函数范例，remotedri是远程目录的路径，filetype是文件后缀属性，filestring是文件名称中含有哪些字符"""
 	"""demoformat:fetch_xxxx("10.41.52.124/mm/Scrap/output","xlsx","Scrap")"""
 	def fetch_xxxx(self,remotedri,filetpye,filestring = "."):
 		print('Start Download smbfile')
@@ -51,6 +55,7 @@ class Fetch(object) :
 					Remotepath = os.path.join(remotedri,onefile)
 					Localpath = './temporaryfile/{}'.format(onefile)
 					TotalFiles+= 1
+					"""通过创建好的SMB共享盘客服端，读取远端文件内容写入本地存储。Remotepath要读取的远程文件路径，Localpath是要写入内容的本地文件路径"""
 					with open_file(Remotepath,mode = "rb") as fr:
 						file_bytes = fr.read()
 					with open(Localpath,"wb") as fw :
