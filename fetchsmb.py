@@ -39,7 +39,7 @@ class Fetch(object) :
 			, datefmt='%Y/%m/%d %I:%M:%S %p')
 	
 	"""这是一个从SMB共享盘拉取数据的函数范例，remotedri是远程目录的路径，filetype是文件后缀属性，filestring是文件名称中含有哪些字符"""
-	"""demoformat:fetch_xxxx("10.41.52.124/mm/Scrap/output","xlsx","Scrap")"""
+	"""demoformat:fetch_xxxx("xx.xx.xx.xx/mm/Scrap/output","xlsx","Scrap")"""
 	def fetch_xxxx(self,remotedri,filetpye,filestring = "."):
 		print('Start Download smbfile')
 		logging.info('Start Download smbfile')
