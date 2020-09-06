@@ -52,6 +52,7 @@ class Fetch_pymysql(object) :
 	"""这是一个从mariadb数据库拉取数据的函数范例"""
 	def fetch_xxxx(self):
 		try:
+			"""通过创建的客户端与SQL语句对数据库执行相应的操作"""
 			with self.MySqlConn.cursor() as cursor:
 				sql = """SELECT * 
 				FROM dat_energy.wzs_sb_base_data 
@@ -102,6 +103,7 @@ class Fetch_sqlalchemy(object) :
 	"""这是一个从mariadb数据库拉取数据的函数范例"""
 	def fetch_xxxx(self):
 		try:
+			"""通过创建的客户端与SQL语句对数据库执行相应的操作"""
 			sql = "SELECT * FROM dat_energy.wzs_sb_base_data WHERE wzs_sb_base_data.batchid = (SELECT MAX(wzs_sb_base_data.batchid) FROM dat_energy.wzs_sb_base_data); "
 			meterbase_df = pd.read_sql(sql,self.dbConnection)
 		except Exception as inst:
