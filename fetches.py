@@ -27,7 +27,7 @@ class Fetch(object) :
 		
 		"""建立与ES数据库连接的客户端"""
 		try :
-			self.EsClient = Elasticsearch(["zsarm-emnrdb-p01.wzs.wistron","zsarm-emnrdb-p02.wzs.wistron","zsarm-emnrdb-p03.wzs.wistron"],maxsize = 25,timeout = 180)
+			self.EsClient = Elasticsearch(["xx.xx.xx.xx:xx","xx.xx.xx.xx:xx","xx.xx.xx.xx:xx"],maxsize = 25,timeout = 180)
 		except Exception as inst :
 			print('Elasticsearch connect fail')
 			print(inst)
