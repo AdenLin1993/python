@@ -11,7 +11,9 @@ import logging
 import re							
 from ftplib import FTP				
 
+""" 创建一个FTP共享盘拉取数据的类"""
 class Fetch(object):
+	"""重写类的初始化属性"""
 	def __init__(self) :
 		self.config = configparser.RawConfigParser()
 		self.config.read('./config.cfg')
@@ -28,6 +30,8 @@ class Fetch(object):
 			, level=logging.INFO
 			, format='%(asctime)s %(message)s'
 			, datefmt='%Y/%m/%d %I:%M:%S %p')
+		
+		"""建立与FTP共享盘连接的客户端"""
 		try :
 			self.FtpClient = FTP()
 			self.FtpClient.connect(ftphost,ftpport)
@@ -37,7 +41,8 @@ class Fetch(object):
 			print(inst)
 			logging.error('FTP Connection Fail')
 			logging.error(inst)
-
+			
+	"""这是一个从FTP共享盘拉取数据的函数范例"""
 	"""demoformat:fetch_xxxx("/Man_Power/Training_Roadmap","xlsx",filestring = "DLA")"""
 	def fetch_xxxx(self,remotedri,filetpye,filestring = ".") :
 		print('Start Download {0}'.format(remotedri))
@@ -54,6 +59,7 @@ class Fetch(object):
 				if onefile.lower().endswith('.{}'.format(filetpye)) and findlength > 0:
 					TotalFiles+= 1
 					TmpPath = './/temporaryfile//{0}'.format(onefile)
+					"""通过创建好的FTP共享盘客服端和相关参数，下载指定的文件到程式运行的主机存储。"""
 					self.FtpClient.retrbinary("RETR "+onefile,open(TmpPath,'wb').write)
 					SuccessFiles+= 1
 			except Exception as inst :
