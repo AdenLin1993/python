@@ -66,7 +66,8 @@ fetchsftp.py
 主要理解这句指令的上下文：self.SFtp_Conn.get(Remotepath,Localpath)
 self.SFtp_Conn.remove(Remotepath)
 
-其他指令是应对需求做的再封装，为了方便自己使用，和应对一些特殊情况下也能正常使用的需求，其中使用的相关方法参考 docs.paramiko.org/en/2.4/api/sftp.html?highlight=paramiko.SFTPClient.from_transport(SFtp_transport)#paramiko.sftp_client.SFTPClient.from_transport
+其他指令是应对需求做的再封装，为了方便自己使用，和应对一些特殊情况下也能正常使用的需求，其中使用的相关方法参考 
+http://docs.paramiko.org/en/stable/api/sftp.html
 
 
 
